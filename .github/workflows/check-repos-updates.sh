@@ -17,20 +17,6 @@ function getCurrentVersion {
     echo "Current version is $CURRENT_GLOBAL_VERSION"
 
 
-function getCurrentVersion {
-    for file in `find . -type f -name "*.cshtml"`  
-    do
-        CURRENT_VERSION=$(grep -hnr "kendo.cdn" $file | head -1 |cut -d '/' -f 4)
-        if [ ! -z "$CURRENT_VERSION" ]
-            then
-                CURRENT_GLOBAL_VERSION=$CURRENT_VERSION
-        fi
-    done
-}
-    getCurrentVersion $file
-    echo "Current version is $CURRENT_GLOBAL_VERSION"
-
-
 for file in `find . -type f -name "*.cshtml"`  
 do
     sed -i "s/$CURRENT_GLOBAL_VERSION/$LATEST_RELEASE/g" $file
