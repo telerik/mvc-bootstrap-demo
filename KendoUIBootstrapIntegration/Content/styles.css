@@ -66,7 +66,7 @@ header .description {
     line-height: 29px;
 }
 
-header .k-dropdown,
+header,
 header #font-size-value {
     font-size: 18px;
     line-height: 45px;
@@ -113,6 +113,11 @@ header .k-dropdown-wrap .k-select {
 header .k-dropdown .k-i-arrow-s {
     background-image: url("https://cdn.kendostatic.com/2021.3.914/styles/Bootstrap/sprite.png");
     background-position: -16px -32px;
+}
+
+.k-animation-container {
+    color: white;
+    background-color: black;
 }
 
 header .k-dropdown-wrap.k-state-default .k-input {
@@ -365,4 +370,9 @@ header .container h1.visible-sm {
     border-color: #171e28;
     background-color: #212a33;
     color: #fff;
+}
+
+.k-list-content {
+    color: #fff;
+    background-color: #333;
 }
