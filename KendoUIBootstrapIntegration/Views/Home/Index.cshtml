@@ -67,7 +67,7 @@
                                             .CategoryAxis(a=>a
                                                 .Line(l=>l.Visible(false))
                                                 .MajorGridLines(m=>m.Visible(false))
-                                                .Labels(l=>l.Visible(false)) 
+                                                .Labels(l=>l.Visible(false))
                                                 .Categories(m=>m.Date))
                                             .Series(series => {
                                                series.Column(model => model.Canterbury).Name("Canterbury");
@@ -117,11 +117,11 @@
                                             .Transitions(false)
                                             .Theme("bootstrap")
                                             .Legend(l=>l.Visible(false))
-                                            .ChartArea(c=>c.Margin(10, 8, 0, 10).Background("transparent"))        
+                                            .ChartArea(c=>c.Margin(10, 8, 0, 10).Background("transparent"))
                                             .SeriesDefaults(s=>s
                                                 .Area()
                                                 .Line(l=>l.Style(ChartAreaStyle.Smooth))
-                                                .Stack(true))                                       
+                                                .Stack(true))
                                             .CategoryAxis(a=>a
                                                 .Categories(m=>m.Date)
                                                 .Line(l=>l.Visible(false))
@@ -245,7 +245,11 @@
             <div class="form-group">
                 <label class="control-label col-sm-4" for="name">Name</label>
                 <div class="col-sm-8 col-md-6">
-                    <input id="name" value="Johnatan Dodsworth" class="k-textbox" />
+                    @(Html.Kendo().TextBox()
+                        .Name("name")
+                        .Placeholder("Name")
+                        .Value("Johnatan Dodsworth")
+                    )
                 </div>
             </div>
 
@@ -305,7 +309,11 @@
             <div class="form-group">
                 <label class="control-label col-sm-4" for="occupation">Occupation</label>
                 <div class="col-sm-8 col-md-6">
-                    <input id="occupation" placeholder="e.g. Developer" class="k-textbox" />
+                    @(Html.Kendo().TextBox()
+                        .Name("occupation")
+                        .Placeholder("Occupation")
+                        .Value("e.g. Developer")
+                    )
                 </div>
             </div>
 
@@ -413,7 +421,6 @@
                     )
 
      )
-
     @(Html.Kendo().Scheduler<Kendo_UI_Bootstrap_Integration.Scheduler.TaskViewModel>()
     .Name("schedule")
     .Date(new DateTime(2013, 6, 13))
@@ -460,7 +467,7 @@
         <script id="listview-template" type="x-kendo-template">
                     <li class="col-xs-6 col-md-4 col-lg-2">
                         <figure>
-                            <img src='@Url.Content("~/assets/photos/#=data.Id #.jpg")' class="img-responsive" />  
+                            <img src='@Url.Content("~/assets/photos/#=data.Id #.jpg")' class="img-responsive" />
                             <figcaption class="hidden-xs">
                                 <h4>#: Title #</h4>
                                 <p class="hidden-sm">
@@ -542,7 +549,8 @@
 
     <section id="faq" class="well">
         <h2 class="ra-well-title">
-            <abbr title="Frequently Asked Questions">FAQ</abbr></h2>
+            <abbr title="Frequently Asked Questions">FAQ</abbr>
+        </h2>
 
         @(Html.Kendo().PanelBar()
             .Name("panelbar")
