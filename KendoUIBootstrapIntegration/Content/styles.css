@@ -114,11 +114,7 @@ header .k-dropdown .k-i-arrow-s {
     background-image: url("https://cdn.kendostatic.com/2021.3.914/styles/Bootstrap/sprite.png");
     background-position: -16px -32px;
 }
-
-.k-animation-container {
-    color: white;
-    background-color: black;
-}
+ 
 
 header .k-dropdown-wrap.k-state-default .k-input {
     color: #fff;
@@ -373,6 +369,11 @@ header .container h1.visible-sm {
 }
 
 .k-list-content {
+    color: #fff;
+    background-color: #333;
+}
+
+#configurator .k-picker {
     color: #fff;
     background-color: #333;
 }
