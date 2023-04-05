@@ -1,16 +1,20 @@
-﻿@*@model IEnumerable<Kendo_UI_Bootstrap_Integration.Models.ChartViewModel>*@
+﻿<!DOCTYPE html>
 
 <div id="example" class="container">
-    <section class="well">
-        <h2 class="ra-well-title">What is this page?</h2>
 
-        <p>This page shows how to use UI for ASP.NET MVC alongside Twitter Bootstrap.</p>
+    <section class="card">
+        <div class="card-header">What is this page?</div>
 
-        <p>The grid layout and responsive CSS is provided by Bootstrap, and widgets are provided by Kendo UI.</p>
+        <div class="card-body">
 
-        <p>Resize the page or customize it using the pickers above to see its responsive features.</p>
+            <p>This page shows how to use UI for ASP.NET MVC alongside Twitter Bootstrap.</p>
 
-        <p>The source for this demo is <a href="https://github.com/telerik/mvc-bootstrap-demo">available on GitHub</a></p>
+            <p>The grid layout and responsive CSS is provided by Bootstrap, and widgets are provided by Kendo UI.</p>
+
+            <p>Resize the page or customize it using the pickers above to see its responsive features.</p>
+
+            <p>The source for this demo is <a href="https://github.com/telerik/mvc-bootstrap-demo">available on GitHub</a></p>
+        </div>
     </section>
 
     @(Html.Kendo().Menu()
@@ -22,24 +26,27 @@
                 children.Add().Text("Orders").Url("#orders");
                 children.Add().Text("Gallery").Url("#gallery");
                 children.Add().Text("FAQ").Url("#faq");
-                children.Add().Text("Kendo UI demos").Url("https://demos.telerik.com/kendo-ui");
+                children.Add().Text("Telerik UI for ASP.NET MVC demos").Url("https://demos.telerik.com/aspnet-mvc/");
             }
         )
     )
+
     <div class="row clearfix">
         <div class="col-lg-4">
-            <section id="profile" class="well">
-                <h2 class="ra-well-title">Profile</h2>
+            <section id="profile" class="card ra-section">
+                <div class="card-header">Profile</div>
 
-                <div class="row">
-                    <div class="col-lg-5 col-sm-2">
-                        <img src="~/assets/avatar.jpg" class="ra-avatar img-responsive" />
-                    </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-3">
+                            <img src="~/assets/avatar.jpg" class="avatar img-fluid" />
+                        </div>
 
-                    <div class="col-lg-7 col-sm-2">
-                        <span class="ra-first-name">Jonathan</span>
-                        <span class="ra-last-name">Dodsworth</span>
-                        <div class="ra-position">Inside Sales Coordinator</div>
+                        <div class="col-lg-8 col-md-9">
+                            <span class="ra-first-name">Jonathan</span>
+                            <span class="ra-last-name">Dodsworth</span>
+                            <div class="ra-position">Inside Sales Coordinator</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -85,7 +92,7 @@
                                                 ))
                                            .Tooltip(t=>t.Visible(true).Template("#= series.name # <br /> #= category #: $#= value #"))
                                         )
-            </text>);
+                        </text>);
                         tabstrip.Add().Text("<span class='km-icon spd'></span><span class='hidden-xs'>Sales / day</span>")
                                 .Encoded(false)
                                 .Content(@<text>
@@ -107,7 +114,7 @@
                                                 bands.Add().From(10000).To(20000).Color("#ff0000").Opacity(0.05);
                                             }))
                                             )
-            </text>);
+                        </text>);
                         tabstrip.Add().Text("<span class='km-icon spr'></span><span class='hidden-xs'>Sales / region</span>")
                                 .Encoded(false)
                                 .Content(@<text>
@@ -136,7 +143,7 @@
                                             })
                                             .ValueAxis(v=>v.Numeric().Labels(l=>l.Step(2)))
                                         )
-            </text>);
+                        </text>);
                         tabstrip.Add().Text("<span class='km-icon share'></span><span class='hidden-xs'>Market share</span>")
                                 .Encoded(false)
                                 .Content(@<text>
@@ -231,172 +238,175 @@
                                                     .Visible(true)
                                                     .Template("#= category # (#= series.name #): #= value #%"))
                                             )
-            </text>);
+                        </text>);
                     }
                 )
             )
-
         </div>
     </div>
 
-    <section class="well">
-        <h2 class="ra-well-title">Profile Setup</h2>
-        <div class="form-horizontal form-widgets col-sm-6">
-            <div class="form-group">
-                <label class="control-label col-sm-4" for="name">Name</label>
-                <div class="col-sm-8 col-md-6">
-                    @(Html.Kendo().TextBox()
-                        .Name("name")
-                        .Placeholder("Name")
-                        .Value("Johnatan Dodsworth")
-                    )
+    <section class="card">
+        <div class="card-header">Profile Setup</div>
+
+        <div class="card-body row">
+            <div class="form-widgets col-md-6">
+                <div class="row mb-3">
+                    <label class="col-sm-12 col-md-4 form-label text-md-end" for="name">Name</label>
+                    <div class="col-sm-12 col-md-8 col-lg-6">
+                        @(Html.Kendo().TextBox()
+                             .Name("name")
+                             .Placeholder("Name")
+                             .Value("Johnatan Dodsworth")
+                         )
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-12 col-md-4 form-label text-md-end" for="birthday">Birthday</label>
+                    <div class="col-sm-12 col-md-8 col-lg-6">
+                        @(Html.Kendo().DatePicker().Name("date").Value("10/09/1979"))
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-12 col-md-4 form-label text-md-end" for="gender">Gender</label>
+                    <div class="col-sm-12 col-md-8 col-lg-6">
+                        @(Html.Kendo().DropDownList()
+                               .Name("gender")
+                               .DataTextField("Text")
+                               .DataValueField("Value")
+                               .Value("Male")
+                               .BindTo(new List<SelectListItem>() {
+                                     new SelectListItem() {
+                                         Text = "Male",
+                                         Value = "Male"
+                                     },
+                                     new SelectListItem() {
+                                         Text = "Female",
+                                         Value = "Female"
+                                     }
+                               })
+                            )
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-12 col-md-4 form-label text-md-end" for="language">Language</label>
+                    <div class="col-sm-12 col-md-8 col-lg-6">
+                        @(Html.Kendo().DropDownList()
+                               .Name("language")
+                               .DataTextField("Text")
+                               .DataValueField("Value")
+                               .Value("English")
+                               .BindTo(new List<SelectListItem>() {
+                                     new SelectListItem() {
+                                         Text = "English",
+                                         Value = "English"
+                                     },
+                                     new SelectListItem() {
+                                         Text = "German",
+                                         Value = "German"
+                                     }
+                                 })
+                            )
+                    </div>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="control-label col-sm-4" for="birthday">Birthday</label>
-                <div class="col-sm-8 col-md-6">
-                    @(Html.Kendo().DatePicker().Name("date").Value("10/09/1979"))
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-sm-4" for="gender">Gender</label>
-                <div class="col-sm-8 col-md-6">
-                    @(Html.Kendo().DropDownList()
-                        .Name("gender")
-                        .DataTextField("Text")
-                        .DataValueField("Value")
-                        .Value("Male")
-                        .BindTo(new List<SelectListItem>() {
-                              new SelectListItem() {
-                                  Text = "Male",
-                                  Value = "Male"
-                              },
-                              new SelectListItem() {
-                                  Text = "Female",
-                                  Value = "Female"
-                              }
-                          })
+            <div class="form-widgets col-md-6">
+                <div class="row mb-3">
+                    <label class="col-sm-12 col-md-4 form-label text-md-end" for="occupation">Occupation</label>
+                    <div class="col-sm-12 col-md-8 col-lg-6">
+                        @(Html.Kendo().TextBox()
+                          .Name("occupation")
+                          .Placeholder("Occupation")
+                          .Value("e.g. Developer")
                         )
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="control-label col-sm-4" for="language">Language</label>
-                <div class="col-sm-8 col-md-6">
-                    @(Html.Kendo().DropDownList()
-                        .Name("language")
-                        .DataTextField("Text")
-                        .DataValueField("Value")
-                        .Value("English")
-                        .BindTo(new List<SelectListItem>() {
-                              new SelectListItem() {
-                                  Text = "English",
-                                  Value = "English"
-                              },
-                              new SelectListItem() {
-                                  Text = "German",
-                                  Value = "German"
-                              }
-                          })
+                <div class="row mb-3">
+                    <label class="col-sm-12 col-md-4 form-label text-md-end" for="skills">Skills</label>
+                    <div class="col-sm-12 col-md-8 col-lg-6">
+                        @(Html.Kendo().MultiSelect()
+                             .Name("skills")
+                             .DataTextField("Text")
+                             .DataValueField("Value")
+                             .Value(new string[] { "C#", "jQuery" })
+                             .BindTo(new List<SelectListItem>() {
+                                   new SelectListItem() {
+                                       Text = "C",
+                                       Value = "C"
+                                   },
+                                   new SelectListItem() {
+                                       Text = "C++",
+                                       Value = "C++"
+                                   },
+                                   new SelectListItem() {
+                                       Text = "C#",
+                                       Value = "C#"
+                                   },
+                                   new SelectListItem() {
+                                       Text = "JavaScript",
+                                       Value = "JavaScript"
+                                   },
+                                   new SelectListItem() {
+                                       Text = "jQuery",
+                                       Value = "jQuery"
+                                   },
+                                   new SelectListItem() {
+                                       Text = "Git",
+                                       Value = "Git"
+                                   },
+                                   new SelectListItem() {
+                                       Text = "Node.js",
+                                       Value = "Node.js"
+                                   },
+                                   new SelectListItem() {
+                                       Text = "Ruby",
+                                       Value = "Ruby"
+                                   },
+                                   new SelectListItem() {
+                                       Text = "Ruby on Rails",
+                                       Value = "Ruby on Rails"
+                                   },
+                                   new SelectListItem() {
+                                       Text = "Kendo UI",
+                                       Value = "Kendo UI"
+                                   }
+                               })
                         )
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-horizontal form-widgets col-sm-6">
-            <div class="form-group">
-                <label class="control-label col-sm-4" for="occupation">Occupation</label>
-                <div class="col-sm-8 col-md-6">
-                    @(Html.Kendo().TextBox()
-                        .Name("occupation")
-                        .Placeholder("Occupation")
-                        .Value("e.g. Developer")
-                    )
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label col-form-label-md text-md-end" for="experience">Experience</label>
+                    <div class="col-sm-12 col-md-8 col-lg-6">
+                        @(Html.Kendo().NumericTextBox()
+              .Name("experience")
+              .Value(4))
+                    </div>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="control-label col-sm-4" for="skills">Skills</label>
-                <div class="col-sm-8 col-md-6">
-                    @(Html.Kendo().MultiSelect()
-                        .Name("skills")
-                        .DataTextField("Text")
-                        .DataValueField("Value")
-                        .Value(new string[] { "C#", "jQuery" })
-                        .BindTo(new List<SelectListItem>() {
-                              new SelectListItem() {
-                                  Text = "C",
-                                  Value = "C"
-                              },
-                              new SelectListItem() {
-                                  Text = "C++",
-                                  Value = "C++"
-                              },
-                              new SelectListItem() {
-                                  Text = "C#",
-                                  Value = "C#"
-                              },
-                              new SelectListItem() {
-                                  Text = "JavaScript",
-                                  Value = "JavaScript"
-                              },
-                              new SelectListItem() {
-                                  Text = "jQuery",
-                                  Value = "jQuery"
-                              },
-                              new SelectListItem() {
-                                  Text = "Git",
-                                  Value = "Git"
-                              },
-                              new SelectListItem() {
-                                  Text = "Node.js",
-                                  Value = "Node.js"
-                              },
-                              new SelectListItem() {
-                                  Text = "Ruby",
-                                  Value = "Ruby"
-                              },
-                              new SelectListItem() {
-                                  Text = "Ruby on Rails",
-                                  Value = "Ruby on Rails"
-                              },
-                              new SelectListItem() {
-                                  Text = "Kendo UI",
-                                  Value = "Kendo UI"
-                              }
-                          })
-                        )
+            <div class="clearfix"></div>
+
+            <div class="form-widgets col-sm-12">
+                <div class="row mb-3">
+                    <label class="col-sm-12 col-md-2 text-md-end" for="bio">Short bio</label>
+                    <div class="col-sm-12 col-md-10 col-lg-9">
+                        @(Html.Kendo().Editor().Name("bio"))
+                    </div>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="control-label col-sm-4" for="experience">Experience</label>
-                <div class="col-sm-8 col-md-6">
-                    @(Html.Kendo().NumericTextBox()
-                    .Name("experience")
-                    .Value(4))
-                </div>
+            <div class="buttons-wrap">
+                <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Cancel</button>
+                <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Update</button>
             </div>
-        </div>
-
-        <div class="clearfix"></div>
-
-        <div class="form-horizontal form-widgets col-sm-12">
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="bio">Short bio</label>
-                <div class="col-sm-10">
-                    @(Html.Kendo().Editor().Name("bio"))
-                </div>
-            </div>
-        </div>
-
-        <div class="buttons-wrap">
-            <button class="k-button k-state-default">Cancel</button>
-            <button class="k-button k-state-default">Update</button>
         </div>
     </section>
+
     @(Html.Kendo().Grid<Kendo_UI_Bootstrap_Integration.Orders.OrderViewModel>()
                     .Name("orders")
                     .HtmlAttributes(new { @class = "ra-section" })
@@ -420,57 +430,57 @@
                             .Transport(t => t.Read(r => r.Url("https://demos.telerik.com/kendo-ui/service/Northwind.svc/Orders")))
                     )
 
-     )
-    @(Html.Kendo().Scheduler<Kendo_UI_Bootstrap_Integration.Scheduler.TaskViewModel>()
-    .Name("schedule")
-    .Date(new DateTime(2013, 6, 13))
-    .StartTime(new DateTime(2013, 6, 13, 7, 00, 00))
-    .EndTime(new DateTime(2013, 6, 13, 20, 00, 00))
-    .HtmlAttributes(new { @class = "ra-section" })
-    .Views(views =>
-    {
-        views.DayView(dayView => dayView.Selected(true));
-        views.WeekView();
-        views.MonthView();
-    })
-    .Editable(false)
-    .Timezone("Etc/UTC")
-    .DataSource(dataSource => dataSource
-        .Custom()
-        .Transport(t => t
-            .Read(r => r
-                .Url("https://demos.telerik.com/kendo-ui/service/meetings")
-                .DataType("jsonp"))
         )
-        .Schema(schema => schema
-            .Model(m =>
-            {
-                m.Id(f => f.TaskID);
-                m.Field("title", typeof(string)).DefaultValue("No title").From("Title");
-                m.Field("start", typeof(DateTime)).From("Start");
-                m.Field("end", typeof(DateTime)).From("End");
-                m.Field("description", typeof(string)).From("Description");
-                m.Field("recurrenceID", typeof(int)).From("RecurrenceID");
-                m.Field("recurrenceRule", typeof(string)).From("RecurrenceRule");
-                m.Field("recurrenceException", typeof(string)).From("RecurrenceException");
-                m.Field("isAllDay", typeof(bool)).From("IsAllDay");
-                m.Field("startTimezone", typeof(string)).From("StartTimezone");
-                m.Field("endTimezone", typeof(string)).From("EndTimezone");
-            })
-            )
-    )
-    )
+    @(Html.Kendo().Scheduler<Kendo_UI_Bootstrap_Integration.Scheduler.TaskViewModel>()
+              .Name("schedule")
+              .Date(new DateTime(2022, 6, 13))
+              .StartTime(new DateTime(2022, 6, 13, 7, 00, 00))
+              .EndTime(new DateTime(2022, 6, 13, 20, 00, 00))
+              .HtmlAttributes(new { @class = "ra-section" })
+              .Views(views =>
+              {
+                  views.DayView(dayView => dayView.Selected(true));
+                  views.WeekView();
+                  views.MonthView();
+              })
+              .Editable(false)
+              .Timezone("Etc/UTC")
+              .DataSource(dataSource => dataSource
+                  .Custom()
+                  .Transport(t => t
+                      .Read(r => r
+                          .Url("https://demos.telerik.com/kendo-ui/service/meetings")
+                          .DataType("jsonp"))
+                  )
+                  .Schema(schema => schema
+                      .Model(m =>
+                      {
+                          m.Id(f => f.TaskID);
+                          m.Field("title", typeof(string)).DefaultValue("No title").From("Title");
+                          m.Field("start", typeof(DateTime)).From("Start");
+                          m.Field("end", typeof(DateTime)).From("End");
+                          m.Field("description", typeof(string)).From("Description");
+                          m.Field("recurrenceID", typeof(int)).From("RecurrenceID");
+                          m.Field("recurrenceRule", typeof(string)).From("RecurrenceRule");
+                          m.Field("recurrenceException", typeof(string)).From("RecurrenceException");
+                          m.Field("isAllDay", typeof(bool)).From("IsAllDay");
+                          m.Field("startTimezone", typeof(string)).From("StartTimezone");
+                          m.Field("endTimezone", typeof(string)).From("EndTimezone");
+                      })
+                      )
+              )
+         )
 
-    <section id="gallery" class="well">
-        <h2 class="ra-well-title">Latest photo uploads</h2>
+    <section id="gallery" class="card">
+        <div class="card-header" style="font-size: 14px;">Latest photo uploads</div>
 
         <script id="listview-template" type="x-kendo-template">
-                    <li class="col-xs-6 col-md-4 col-lg-2">
+                    <li class="col-xs-6 col-md-4 col-lg-2 k-listview-item">
                         <figure>
-                            <img src='@Url.Content("~/assets/photos/#=data.Id #.jpg")' class="img-responsive" />
-                            <figcaption class="hidden-xs">
-                                <h4>#: Title #</h4>
-                                <p class="hidden-sm">
+                            <img src='@Url.Content("~/assets/photos/#=data.Id #.jpg")' class="img-fluid" />
+                            <figcaption class="d-none d-sm-block">
+                                <h4 style="font-size: 14px;">#: Title #</h4>
+                                <p class="d-sm-none d-md-block" style="font-size: 14px;">
                                     #: Description #
                                 </p>
                             </figcaption>
@@ -479,7 +489,6 @@
         </script>
         @(Html.Kendo().ListView<Kendo_UI_Bootstrap_Integration.ListViewModel>()
             .Name("listview")
-            .HtmlAttributes(new { @class = "ra-well-overlay row" })
             .ClientTemplateId("listview-template")
             .TagName("div")
             .BindTo(new List<ListViewModel>() {
@@ -547,58 +556,47 @@
         )
     </section>
 
-    <section id="faq" class="well">
-        <h2 class="ra-well-title">
+    <section id="faq" class="card">
+        <div class="card-header">
             <abbr title="Frequently Asked Questions">FAQ</abbr>
-        </h2>
+        </div>
 
-        @(Html.Kendo().PanelBar()
-            .Name("panelbar")
-            .HtmlAttributes(new { @class = "ra-well-overlay" })
-            .Items(panelbar =>
-                    {
-                        panelbar.Add().Text("What is Kendo UI")
-                                .Selected(true)
-                                .Content(@<text>
-        <div>
-            <p>Kendo UI is a HTML5, jQuery-based framework for building modern HTML apps. Kendo UI combines the best of emerging HTML5, CSS3, and JavaScript technologies with robust, cross-browser techniques to deliver a framework that is both powerfully rich and broadly compatible with older browsers.</p>
-            <p>Kendo UI combines everything that a developer needs to build a rich JavaScript app, eliminating the traditional challenge of manually researching and combining all of the needed plug-ins, frameworks, and libraries needed to build apps. Kendo UI includes rich UI controls for desktop, mobile and data vizualization, a JavaScript DataSource, fast Templates, cross-device Drag and Drop API, Globalization, Validation and MVVM framework extensions, and more.</p>
-            <p><a href="https://www.telerik.com/download/kendo-ui-complete">Download Kendo UI</a> and experience the difference today</p>
-        </div></text>);
-                        panelbar.Add().Text("Who should use Kendo UI?")
-                                            .Encoded(false)
-                                            .Content(@<text>
-        <div>
-            <p>Kendo UI is a HTML5, jQuery-based framework for building modern HTML apps. Kendo UI combines the best of emerging HTML5, CSS3, and JavaScript technologies with robust, cross-browser techniques to deliver a framework that is both powerfully rich and broadly compatible with older browsers.</p>
-            <p>Kendo UI combines everything that a developer needs to build a rich JavaScript app, eliminating the traditional challenge of manually researching and combining all of the needed plug-ins, frameworks, and libraries needed to build apps. Kendo UI includes rich UI controls for desktop, mobile and data vizualization, a JavaScript DataSource, fast Templates, cross-device Drag and Drop API, Globalization, Validation and MVVM framework extensions, and more.</p>
-            <p><a href="https://www.telerik.com/download/kendo-ui-complete">Download Kendo UI</a> and experience the difference today</p>
-        </div></text>);
-                        panelbar.Add().Text("What are Kendo UI widgets?")
-                                            .Encoded(false)
-                                            .Content(@<text>
-        <div>
-            <p>Kendo UI widgets are part of the Kendo UI Framework. Kendo UI widgets are grouped into three collections:</p>
-            <ul>
-                <li>Kendo UI Web for touch-enabled desktop development</li>
-                <li>Kendo UI DataViz for desktop and mobile data vizualizations</li>
-                <li>Kendo UI Mobile for mobile app development, including PhoneGap deployment</li>
-            </ul>
-            <p>
-                All widgets complement the tooling you need for modern HTML5 and JavaScript development.<br />
-                <br />
-                The Kendo UI Framework provides more than UI, and in the future Kendo UI will offer additional tools to modern HTML developers.
-            </p>
-        </div></text>);
-                        panelbar.Add().Text("How do you use Kendo UI?")
-                                            .Encoded(false)
-                                            .Content(@<text>
-        <div>
-            <p>Kendo UI is a pure JavaScript framework, so using Kendo UI is as simple as referencing JavaScript and CSS resources on your page. Once Kendo UI is configured on your page, the rich API gives you everything you need to initialize and configure an application.</p>
-            <p>To learn more about using and installing Kendo UI, visit the Kendo UI&nbsp;<a href="https://demos.telerik.com/aspnet-mvc/">online demos</a>.</p>
-        </div></text>);
-                    }
-                )
-        )
+        <div class="card-body">
+            @(Html.Kendo().PanelBar()
+                  .Name("panelbar")
+                  .Items(panelbar =>
+                          {
+                              panelbar.Add().Text("What is Telerik UI for ASP.NET MVC")
+                                      .Selected(true)
+                                      .Content(@<text>
+                                         <div>
+                                             <p>Telerik UI for ASP.NET MVC is a set of server-side wrappers that bring the HTML/JavaScript Kendo UI widgets to .NET MVC. Our server-side wrappers come in the form of HTML helpers. From client-side perspective, the vanilla HTML/JavaScript Kendo UI widgets and their ASP.NET MVC server-side wrappers represent the same functionalities and provide the same capabilities.</p>
+                                             <p><a href="https://www.telerik.com/download/kendo-ui-complete">Download Kendo UI</a> and experience the difference today</p>
+                                         </div></text>);
+                                                         panelbar.Add().Text("Who should use UI for ASP.NET MVC?")
+                                                                             .Encoded(false)
+                                                                             .Content(@<text>
+                                         <div>
+                                             <p>Telerik UI for ASP.NET MVC is a set of server-side wrappers that bring the HTML/JavaScript Kendo UI widgets to .NET MVC. Our server-side wrappers come in the form of HTML helpers. From client-side perspective, the vanilla HTML/JavaScript Kendo UI widgets and their ASP.NET MVC server-side wrappers represent the same functionalities and provide the same capabilities.</p>
+                                             <p><a href="https://www.telerik.com/download/kendo-ui-complete">Download Kendo UI</a> and experience the difference today</p>
+                                         </div></text>);
+                                                         panelbar.Add().Text("What are Telerik UI for APS.NET MVC components?")
+                                                                             .Encoded(false)
+                                                                             .Content(@<text>
+                                         <div>
+                                             <p>The Telerik UI for ASP.NET MVC HTML helpers::</p>
+                                             <ul>
+                                                 <li>Allow you to configure a Kendo UI widget through C# or VB.NET code—for example, to set its value, data source, and so on</li>
+                                                 <li>Render the HTML and JavaScript that are needed to initialize a Kendo UI widget</li>
+                                                 <li>Propagate the widget’s options to the client-side through its initialization script</li>
+                                             </ul>
+                                         </div></text>);
+                          }
+                      )
+                   )
+        </div>
     </section>
-    <footer>Copyright © @DateTime.Now.Year Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.</footer>
+    <footer>
+        Copyright © @DateTime.Now.Year <a href="https://www.telerik.com/">Progress Software Corporation and/or its subsidiaries or affiliates</a>. All Rights Reserved.
+    </footer>
 </div>
