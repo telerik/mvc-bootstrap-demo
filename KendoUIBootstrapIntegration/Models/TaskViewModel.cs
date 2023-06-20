@@ -1,9 +1,6 @@
 ﻿namespace Kendo_UI_Bootstrap_Integration.Scheduler
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
     using Kendo.Mvc.UI;
 
     public class TaskViewModel : ISchedulerEvent

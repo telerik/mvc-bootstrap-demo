@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Kendo_UI_Bootstrap_Integration.Models
+﻿namespace Kendo_UI_Bootstrap_Integration.Models
 {
     public class DonutChartViewModel
     {

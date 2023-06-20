@@ -1,9 +1,7 @@
 ﻿using Kendo.Mvc.UI;
 using Kendo_UI_Bootstrap_Integration.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Kendo_UI_Bootstrap_Integration.Controllers
