@@ -325,7 +325,7 @@ footer {
     }
 }
 
-@media (max-width: 996px) and (min-width: 768px) {
+@media (max-width: 996px) and (min-width: 767px) {
     .header-description {
         padding-top: 0px;
         padding-bottom: 0px;
@@ -333,7 +333,7 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .k-menu.k-menu-horizontal .k-item {
         float: none;
     }
