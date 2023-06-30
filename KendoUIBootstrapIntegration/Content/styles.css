@@ -1,7 +1,6 @@
 @font-face {
     font-family: "Kendo UI";
-    src: url("https://kendo.cdn.telerik.com/2021.3.914/styles/images/kendoui.woff") format("woff"),
-         url("https://kendo.cdn.telerik.com/2021.3.914/styles/images/kendoui.ttf") format("truetype");
+    src: url("https://kendo.cdn.telerik.com/2023.1.117/styles/images/kendoui.woff") format("woff"), url("https://kendo.cdn.telerik.com/2023.1.117/styles/images/kendoui.ttf") format("truetype");
 }
 
 body:before {
@@ -112,7 +111,8 @@ header {
         }
 
 .header-description {
-    padding-top: 5%;
+    line-height: 33px;
+    align-self: center;
 }
 
 #configurator label {
