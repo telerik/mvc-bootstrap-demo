@@ -17,16 +17,14 @@
     <header>
         <div class="container-sm">
             <div class="row">
-                <div class="col-sm-4 hidden-sm">
-                    <h1 class="header-description">Telerik UI for ASP.NET MVC<sup>&reg;</sup> &hearts; Bootstrap</h1>
-                </div>
                 
-
+                <h1 class="col-md-3 header-description">Telerik UI for ASP.NET MVC<sup>&reg;</sup> &hearts; Bootstrap</h1>
+                
                 <button id="configure" class="d-md-none">
                     <span class="k-icon k-i-menu"></span>
                 </button>
 
-                <div id="configurator-wrap" class="col-md-8 d-none d-md-block">
+                <div id="configurator-wrap" class="col-md-9 d-none d-md-block">
                     <div id="configurator" class="row">
                         <label class="col-md-4 col-sm-12 col-xs-12">
                             <div class="description">Theme</div>
@@ -128,7 +126,7 @@
             $("#theme-list, #swatch-list, #font-size-list").addClass("ra-list");
 
             $("#configure").on("click", function (e) {
-                $("#configurator-wrap").toggleClass("hidden-xs");
+                $("#configurator-wrap").toggleClass("d-none");
                 e.preventDefault();
             });
         })
@@ -195,7 +193,28 @@
             kendo.resize("#tabstrip");
         }
 
-        $(window).resize(resizeTabStripContent);
+        $(window).on("resize", function () {
+            // change menu orientation when window resizes
+            setMenuOrientation();
+            // resize nested charts when window resizes
+            resizeTabStripContent();
+        });
+
+        function setMenuOrientation() {
+            var windowWidth = $(window).width();
+            var menu = $("#menu").data("kendoMenu");
+            var orientation = menu.options.orientation;
+
+            if (windowWidth <= 760) {
+                orientation = "vertical";
+            } else {
+                orientation = "horizontal";
+            }
+
+            menu.setOptions({
+                orientation: orientation,
+            });
+        }
     </script>
 </body>
 </html>
