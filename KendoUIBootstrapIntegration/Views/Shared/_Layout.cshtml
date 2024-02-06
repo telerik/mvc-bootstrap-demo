@@ -18,13 +18,13 @@
     <header>
         <div class="container-sm">
             <div class="row">
-                
                 <h1 class="col-md-4 header-description">Telerik UI for ASP.NET MVC<sup>&reg;</sup> &hearts; Bootstrap</h1>
-                
-                <button id="configure" class="d-md-none">
-                    <span class="k-icon k-i-menu"></span>
-                </button>
-
+                @(Html.Kendo().Button()
+                    .Name("configure")
+                    .Icon("menu")
+                    .Size(ComponentSize.Large)
+                    .HtmlAttributes(new { @class="d-md-none" })
+                )
                 <div id="configurator-wrap" class="col-md-8 d-none d-md-block">
                     <div id="configurator" class="row">
                         <label class="col-md-4 col-sm-12 col-xs-12">
@@ -119,9 +119,7 @@
     </header>
     @RenderBody()
     <script>
-
         $(document).ready(function () {
-
             changeFontSize();
 
             $("#theme-list, #swatch-list, #font-size-list").addClass("ra-list");
