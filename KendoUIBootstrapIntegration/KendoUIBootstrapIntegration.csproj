@@ -44,9 +44,6 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Licensing.Runtime, Version=1.4.9.0, Culture=neutral, PublicKeyToken=98bb5b04e55c09ef">
-      <HintPath>..\packages\Telerik.Licensing.1.4.9\lib\net462\Telerik.Licensing.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="Kendo.Mvc, Version=2025.1.227.462, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
       <HintPath>..\packages\Telerik.UI.for.AspNet.Mvc5.2025.1.227\lib\net45\Kendo.Mvc.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
@@ -112,6 +109,9 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Telerik.FontIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=20b4b0547069c4f8, processorArchitecture=MSIL">
       <HintPath>..\packages\Telerik.FontIcons.4.0.0\lib\netstandard2.0\Telerik.FontIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Licensing.Runtime, Version=1.4.15.0, Culture=neutral, PublicKeyToken=98bb5b04e55c09ef, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telerik.Licensing.1.4.15\lib\net462\Telerik.Licensing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.SvgIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=20b4b0547069c4f8, processorArchitecture=MSIL">
       <HintPath>..\packages\Telerik.SvgIcons.4.0.0\lib\netstandard2.0\Telerik.SvgIcons.dll</HintPath>
@@ -230,6 +230,13 @@
       <UserProperties UseCdnSupport="False" />
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\Telerik.Licensing.1.4.15\build\Telerik.Licensing.targets" Condition="Exists('..\packages\Telerik.Licensing.1.4.15\build\Telerik.Licensing.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Telerik.Licensing.1.4.15\build\Telerik.Licensing.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Telerik.Licensing.1.4.15\build\Telerik.Licensing.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
