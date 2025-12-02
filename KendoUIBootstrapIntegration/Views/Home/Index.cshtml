@@ -422,20 +422,20 @@
                     .Scrollable(s => s.Enabled(false))
                     .DataSource(dataSource => dataSource
                             .Custom()
-                            .Type("odata")
+                            .Type("odata-v4")
                             .PageSize(10)
                             .ServerPaging(true)
                             .ServerSorting(true)
                             .ServerFiltering(true)
-                            .Transport(t => t.Read(r => r.Url("https://demos.telerik.com/kendo-ui/service/Northwind.svc/Orders")))
+                            .Transport(t => t.Read(r => r.Url("https://demos.telerik.com/service/v2/odata/Orders")))
                     )
 
         )
     @(Html.Kendo().Scheduler<Kendo_UI_Bootstrap_Integration.Scheduler.TaskViewModel>()
               .Name("schedule")
-              .Date(new DateTime(2022, 6, 13))
-              .StartTime(new DateTime(2022, 6, 13, 7, 00, 00))
-              .EndTime(new DateTime(2022, 6, 13, 20, 00, 00))
+              .Date(new DateTime(2024, 6, 10))
+              .StartTime(new DateTime(2024, 6, 10, 7, 00, 00))
+              .EndTime(new DateTime(2024, 6, 10, 20, 00, 00))
               .HtmlAttributes(new { @class = "ra-section" })
               .Views(views =>
               {
@@ -449,13 +449,13 @@
                   .Custom()
                   .Transport(t => t
                       .Read(r => r
-                          .Url("https://demos.telerik.com/kendo-ui/service/meetings")
-                          .DataType("jsonp"))
+                          .Url("https://demos.telerik.com/service/v2/core/meetings")
+                          .DataType("json"))
                   )
                   .Schema(schema => schema
                       .Model(m =>
                       {
-                          m.Id(f => f.TaskID);
+                          m.Id(f => f.MeetingID);
                           m.Field("title", typeof(string)).DefaultValue("No title").From("Title");
                           m.Field("start", typeof(DateTime)).From("Start");
                           m.Field("end", typeof(DateTime)).From("End");
